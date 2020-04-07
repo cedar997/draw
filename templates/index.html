@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<title>E-Signature</title>
+	<!-- Styles -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<style>
+		body {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		#sig-canvas {
+			border: 2px dotted rgb(151, 55, 55);
+			border-radius: 5px;
+			cursor: crosshair;
+		}
+
+		#sig-dataUrl {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post">
+		{% csrf_token %}
+		
+		<input type="hidden" name="width" value="">
+		<input type="hidden" name="height" value="">
+		<input type="text" name="tag" value="">
+		<input type="hidden" name="image_data" value="">
+	</form>
+	
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>手写识别</h1>
+				<p>识别结果：{{pred}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+		 		<canvas id="sig-canvas" width="300" height="300" >
+		 			Get a better browser, bro.
+		 		</canvas>
+		 	</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-primary" id="sig-submitBtn">开始识别</button>
+				<button class="btn btn-default" id="sig-clearBtn">重画</button>
+			</div>
+		</div>
+        <br/>
+        
+		<!-- <div class="row">
+			<div class="col-md-12">
+				<textarea id="sig-dataUrl" class="form-control" rows="5">Data URL for your signature will go here!</textarea>
+			</div>
+		</div> -->
+		<br/>
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <img id="sig-image" src="" alt="识别结果展示在这里"/> -->
+			</div>
+		</div>
+	</div>
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<!--<script src="https://code.angularjs.org/snapshot/angular.min.js"></script>-->
+	<script src="../static/signature.js"></script>
+</body>
+</html>
