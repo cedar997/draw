@@ -26,6 +26,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         python3 -m pip install  torch torchvision 
+        sudo apt install net-tools
+    - name: show ip
+      run: |
+        ifconfig 
     - name: Run Tests
       run: |
         python manage.py runserver 0.0.0.0:8000
